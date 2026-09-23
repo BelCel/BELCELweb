@@ -44,9 +44,27 @@ function localApi(env) {
   }
 }
 
+// Completa la URL pública del sitio en index.html (canonical, vista previa en redes, datos para Google).
+// Orden de prioridad: VITE_SITE_URL → dominio de producción que asigna Vercel → valor por defecto.
+// Nunca queda vacía: una URL vacía rompe el build.
+function siteUrl(env) {
+  const raw =
+    env.VITE_SITE_URL?.trim() ||
+    (env.VERCEL_PROJECT_PRODUCTION_URL && `https://${env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
+    'https://belcel.vercel.app'
+  const url = raw.startsWith('http') ? raw : `https://${raw}`
+  return {
+    name: 'belcel-site-url',
+    transformIndexHtml: {
+      order: 'pre',
+      handler: (html) => html.replaceAll('__SITE_URL__', url.replace(/\/+$/, '')),
+    },
+  }
+}
+
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   return {
-    plugins: [react(), tailwindcss(), localApi(env)],
+    plugins: [react(), tailwindcss(), siteUrl(env), localApi(env)],
   }
 })
