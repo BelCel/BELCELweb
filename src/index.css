@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #0a0a0b;
+  --color-surface: #121215;
+  --color-surface-2: #1a1a1f;
+  --color-line: rgb(255 255 255 / 0.09);
+  --color-fg: #f4f4f5;
+  --color-muted: #a1a1aa;
+  --color-red: #ff3b3b;
+  --color-red-600: #e02424;
+  --color-cyan: #3ee6e6;
+
+  --animate-reveal: reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-ink text-fg font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  ::selection { @apply bg-red text-white; }
+  :focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@utility container-x {
+  @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+}
+@utility eyebrow {
+  @apply inline-flex items-center gap-2 font-display text-xs font-medium uppercase tracking-[0.2em] text-cyan;
+  &::before {
+    content: '';
+    @apply h-px w-6 bg-cyan;
+  }
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-display text-sm font-medium transition-colors duration-200 disabled:cursor-wait disabled:opacity-60;
+}
+@utility btn-primary {
+  @apply btn bg-red text-white hover:bg-red-600;
+}
+@utility btn-ghost {
+  @apply btn border border-line text-fg hover:border-white/30 hover:bg-white/5;
+}
+@utility field {
+  @apply w-full rounded-xl border border-line bg-surface-2 px-4 py-3 text-base text-fg transition-colors placeholder:text-muted/60 focus:border-cyan focus:outline-none aria-invalid:border-red;
+}
+
+/* Aparición al hacer scroll (ver hook useReveal) */
+[data-reveal] { opacity: 0; }
+[data-reveal].is-visible { @apply animate-reveal; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-reveal] { opacity: 1; }
+  [data-reveal].is-visible { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
