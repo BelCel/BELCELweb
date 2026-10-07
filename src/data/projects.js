@@ -25,6 +25,8 @@ import chempoTintas from '../assets/projects/chempo-tintas.webp'
 import chempoWeb from '../assets/projects/chempo-web.webp'
 import portfolioPablo from '../assets/projects/portfolio-pablo.webp'
 import portfolioFacundo from '../assets/projects/portfolio-facundo.webp'
+import portfolioLucas from '../assets/projects/portfolio-lucas.webp'
+import atlas from '../assets/projects/atlas.webp'
 
 // Textos del encabezado de la sección (por si cambia el enfoque, ej. "Proyectos en desarrollo")
 export const projectsSection = {
@@ -79,6 +81,26 @@ export const projects = [
     status: 'publicado',
     image: portfolioFacundo,
     url: 'https://portfolio-three-kappa-xkd9dhwu6t.vercel.app/',
+  },
+  {
+    title: 'Portfolio profesional',
+    client: 'Desarrollador Front-End',
+    type: 'Portfolio',
+    description: 'Portfolio personal con diseño propio: proyectos, experiencia, formación y CV descargable.',
+    tech: ['React', 'Vite', 'Tailwind'],
+    status: 'publicado',
+    image: portfolioLucas,
+    url: 'https://lucascelse.vercel.app/',
+  },
+  {
+    title: 'ATLAS',
+    client: 'Proyecto propio',
+    type: 'Aplicación web',
+    description: 'App para estudiantes que organiza el estudio, adapta el plan a tu ritmo y te acompaña en cada paso.',
+    tech: ['Next.js', 'React'],
+    status: 'en-desarrollo',
+    image: atlas,
+    url: 'https://atlas-sage-seven.vercel.app/',
   },
   {
     title: 'Bandas',
