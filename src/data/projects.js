@@ -24,7 +24,7 @@
 import chempoTintas from '../assets/projects/chempo-tintas.webp'
 import chempoWeb from '../assets/projects/chempo-web.webp'
 import portfolioPablo from '../assets/projects/portfolio-pablo.webp'
-import belcelStudio from '../assets/projects/belcel-studio.webp'
+import portfolioFacundo from '../assets/projects/portfolio-facundo.webp'
 
 // Textos del encabezado de la sección (por si cambia el enfoque, ej. "Proyectos en desarrollo")
 export const projectsSection = {
@@ -71,14 +71,14 @@ export const projects = [
     url: 'https://portfolio-pablo-ruddy-psi.vercel.app/',
   },
   {
-    title: 'BelCel Studio',
-    client: 'Proyecto propio',
-    type: 'Web corporativa',
-    description: 'El sitio de nuestro estudio: diseño a medida, video en el hero y formulario de contacto con envío de emails.',
-    tech: ['React', 'Vite', 'Tailwind'],
+    title: 'Portfolio profesional',
+    client: 'Técnico en Sistemas · Desarrollador Front-End',
+    type: 'Portfolio',
+    description: 'Portfolio personal con experiencia, skills y formación, versión en español e inglés y CV descargable.',
+    tech: ['React', 'JavaScript', 'CSS'],
     status: 'publicado',
-    image: belcelStudio,
-    url: 'https://belce-lweb.vercel.app/',
+    image: portfolioFacundo,
+    url: 'https://portfolio-three-kappa-xkd9dhwu6t.vercel.app/',
   },
   {
     title: 'Bandas',
