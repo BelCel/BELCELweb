@@ -5,8 +5,8 @@
 export const contact = {
   email: 'belcel.devs@gmail.com',
   whatsapp: [
-    { label: '11 3770-4374', number: '5491137704374' },
-    { label: '249 438-0835', number: '5492494380835' },
+    { label: '11 3770-4374', number: '5491137704374', person: 'Facu' },
+    { label: '249 438-0835', number: '5492494380835', person: 'Lucas' },
   ],
   instagram: { handle: '@belcel.devs', url: 'https://www.instagram.com/belcel.devs/' },
   linkedin: { handle: 'BelCel', url: 'https://www.linkedin.com/company/103963905/' },

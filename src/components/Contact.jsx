@@ -7,7 +7,7 @@ import { contact, whatsappLink } from '../data/site.js'
 const channels = [
   ...contact.whatsapp.map((w) => ({
     icon: FaWhatsapp,
-    label: 'WhatsApp',
+    label: w.person ? `WhatsApp · ${w.person}` : 'WhatsApp',
     value: w.label,
     href: whatsappLink(w.number),
   })),
